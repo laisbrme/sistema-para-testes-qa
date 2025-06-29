@@ -13,3 +13,7 @@ def browser():
     driver.maximize_window() # Maximiza a janela do navegador
     yield driver
     driver.quit()
+
+@pytest.fixture
+def path_login():
+    return "http://127.0.0.1:3000/Desafio_1/sistema/login.html"
