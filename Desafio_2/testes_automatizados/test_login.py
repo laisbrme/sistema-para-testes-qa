@@ -11,6 +11,15 @@ def test_login_CT01(browser, path_login):
     time.sleep(5)
     assert "login" in browser.current_url or "Login" in browser.page_source
 
+# Caso de teste CT-02:
+def test_login_CT02(browser, path_login):
+    browser.get(path_login)  # Atualize o caminho conforme necessário
+    browser.find_element("id", "email").send_keys("admin@admin.com")
+    time.sleep(1)
+    browser.find_element("id", "btn-entrar").click()
+    time.sleep(5)
+    assert "login" in browser.current_url or "Login" in browser.page_source
+
 def test_login_sucesso(browser, path_login):
     browser.get(path_login)  # Atualize o caminho conforme necessário
     browser.find_element("id", "email").send_keys("admin@admin.com")
