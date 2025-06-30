@@ -42,3 +42,18 @@ def test_produto_CT08(browser, path_login):
     browser.find_element("id", "btn-sair").click()
     # time.sleep(3)
     assert "Produto Teste" in browser.page_source
+
+# Caso de teste CT-09:
+def test_produto_CT09(browser, path_login):
+    browser.get(path_login)  # Atualize o caminho conforme necessário
+    browser.find_element("id", "email").send_keys("admin@admin.com")
+    browser.find_element("id", "senha").send_keys("admin@123")
+    browser.find_element("id", "btn-entrar").click()
+    time.sleep(1)
+
+    browser.find_element("id", "btn-adicionar").click()
+    browser.find_element("id", "btn-adicionar").click()
+    time.sleep(1)
+    browser.find_element("id", "btn-salvar").click()
+    time.sleep(3)
+    assert "Todos os campos são obrigatórios para o cadastro!" in browser.page_source
