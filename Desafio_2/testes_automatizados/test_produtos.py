@@ -1,16 +1,44 @@
 '''
-Função para testes automatizados para cadastro, edição e exclusão de produtos.
+Função para testes automatizados para cadastro de produtos.
 '''
 
-def test_cadastro_produto(browser, path_login):
+import time
+
+# Caso de teste CT-07:
+def test_produto_CT07(browser, path_login):
     browser.get(path_login)  # Atualize o caminho conforme necessário
     browser.find_element("id", "email").send_keys("admin@admin.com")
     browser.find_element("id", "senha").send_keys("admin@123")
-    browser.find_element("id", "btnEntrar").click()
-    browser.find_element("id", "btnCriar").click()
+    browser.find_element("id", "btn-entrar").click()
+    # time.sleep(1)
+
+    browser.find_element("class name", "nav-link").click()
+    # time.sleep(3)
+    assert "login" in browser.current_url or "Login" in browser.page_source
+
+# Caso de teste CT-08:
+def test_produto_CT08(browser, path_login):
+    browser.get(path_login)  # Atualize o caminho conforme necessário
+    browser.find_element("id", "email").send_keys("admin@admin.com")
+    browser.find_element("id", "senha").send_keys("admin@123")
+    browser.find_element("id", "btn-entrar").click()
+    # time.sleep(1)
+
+    browser.find_element("id", "btn-adicionar").click()
+    browser.find_element("id", "btn-adicionar").click()
+    # time.sleep(1)
     browser.find_element("id", "codigo").send_keys("001")
+    # time.sleep(1)
     browser.find_element("id", "nome").send_keys("Produto Teste")
+    # time.sleep(1)
     browser.find_element("id", "quantidade").send_keys("10")
+    # time.sleep(1)
     browser.find_element("id", "valor").send_keys("99.99")
-    browser.find_element("id", "btnSalvar").click()
+    # time.sleep(1)
+    browser.find_element("id", "data").send_keys("25062025")
+    # time.sleep(1)
+    browser.find_element("id", "btn-salvar").click()
+    # time.sleep(1)
+    browser.find_element("id", "btn-sair").click()
+    # time.sleep(3)
     assert "Produto Teste" in browser.page_source
