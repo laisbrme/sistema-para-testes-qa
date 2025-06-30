@@ -43,11 +43,20 @@ Neste desafio, foi criado um projeto de automação utilizando Selenium, cobrind
 
 ```
 ├── Desafio_1
-│   │── Sistema
-│   │   ├── index.html
+│   └── sistema
 │   │   ├── login.html
 │   │   ├── produtos.html
-│   │   └── styles.css
+│   │   └── src
+│   │       ├── css
+│   │       │   ├── base.css
+│   │       │   ├── login.css
+│   │       │   └── produtos.css
+│   │       └── js
+│   │           ├── Produto.js
+│   │           ├── base.js
+│   │           ├── credenciais.js
+│   │           ├── login.js
+│   │           └── produtos.js
 │   └── Casos de teste.xlsx
 │
 ├── Desafio_2
